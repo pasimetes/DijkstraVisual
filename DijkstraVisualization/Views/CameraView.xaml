@@ -1,0 +1,35 @@
+﻿<ContentControl
+    x:Class="DijkstraVisualization.Views.CameraView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="CameraVisual"
+    PreviewMouseWheel="OnMouseWheel">
+
+    <StackPanel
+        x:Name="CameraPanel"
+        Width="{Binding AreaWidth, ElementName=CameraVisual}"
+        Height="{Binding AreaHeight, ElementName=CameraVisual}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="Gray"
+        MouseDown="OnMouseDown"
+        MouseMove="OnMouseMove"
+        MouseUp="OnMouseUp">
+
+        <StackPanel.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding ElementName=CameraVisual, Path=ZoomScale}" ScaleY="{Binding ElementName=CameraVisual, Path=ZoomScale}" />
+        </StackPanel.LayoutTransform>
+
+        <Canvas
+            x:Name="CameraCanvas"
+            Width="{Binding Width, ElementName=CameraPanel}"
+            Height="{Binding Height, ElementName=CameraPanel}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="White">
+            <Grid Width="{Binding ActualWidth, ElementName=CameraCanvas}" Height="{Binding ActualHeight, ElementName=CameraCanvas}">
+                <ContentPresenter Content="{Binding ElementName=CameraVisual, Path=ContentToDisplay}" />
+            </Grid>
+        </Canvas>
+    </StackPanel>
+</ContentControl>

@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="DijkstraVisualization.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:DijkstraVisualization.Converters"
+    StartupUri="Views/ShellView.xaml">
+    <Application.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibility" />
+        <converters:BoolToVisibilityInvertedConverter x:Key="BoolToVisibilityInverted" />
+    </Application.Resources>
+</Application>
